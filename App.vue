@@ -14,6 +14,6 @@
 
 <style>
 	.uni-app--showtabbar{
-		background: #999999;
+		background: #e1cfcf;
 	}
 </style>

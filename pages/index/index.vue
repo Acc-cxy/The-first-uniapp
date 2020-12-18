@@ -8,6 +8,7 @@
 			ref="tabControl"
 		>
 		</tabcontrol>
+		<goodlist :showGoods="showGoods"></goodlist>
 	</view>
 </template>
 
@@ -15,6 +16,7 @@
 	import swipers from './child/swipers.vue'
 	import recommends from './child/recommends.vue'
 	import tabcontrol from './child/tabcontrol.vue'
+	import goodlist from './child/goodlist.vue'
 	export default {
 		data() {
 			return {
@@ -31,14 +33,20 @@
 		},
 		onLoad() {
 			this.getswiper()
-			this.gethomelist('pop',1)
+			this.gethomelist('pop')
 			this.gethomelist('new')
 			this.gethomelist('sell')
+		},
+		computed:{
+			showGoods() {
+				return this.goods[this.currentType].list
+			}
 		},
 		components:{
 			"swipers":swipers,
 			"recommends":recommends,
-			"tabcontrol":tabcontrol
+			"tabcontrol":tabcontrol,
+			"goodlist":goodlist
 		},
 		methods: {
 			tabClick(index) {
@@ -60,14 +68,15 @@
 					url:'/home/multidata'
 				})
 				this.info = res.data.data.banner.list;
-				this.recomm = res.data.data.recommend.list
+				this.recomm = res.data.data.recommend.list;
 			},
 			async gethomelist(type){
 				const page = this.goods[type].page + 1;
 				const res = await this.$myRuquest({
 					url:'/home/data?type='+type+'&page='+1
 				})
-				
+				this.goods[type].list.push(...res.data.data.list);
+				console.log(this.goods[type].list)
 			},
 			
 		}
