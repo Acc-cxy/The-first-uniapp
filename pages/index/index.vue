@@ -8,7 +8,10 @@
 			ref="tabControl"
 		>
 		</tabcontrol>
-		<goodlist :showGoods="showGoods"></goodlist>
+		<goodlist @goodslistclick="itemclick" :showGoods="showGoods"></goodlist>
+		<back-top @click.native="tapscroll"
+					v-show="isShowbackTop">
+		</back-top>
 	</view>
 </template>
 
@@ -17,6 +20,7 @@
 	import recommends from './child/recommends.vue'
 	import tabcontrol from './child/tabcontrol.vue'
 	import goodlist from './child/goodlist.vue'
+	import {mixinorder} from '../../components/mixin.js'
 	export default {
 		data() {
 			return {
@@ -28,7 +32,8 @@
 				  'new': {page: 0, list: []},
 				  'sell': {page: 0, list: []},
 				},
-				currentType: 'pop'
+				currentType: 'pop',
+				isLoadMore:false,
 			}
 		},
 		onLoad() {
@@ -37,18 +42,27 @@
 			this.gethomelist('new')
 			this.gethomelist('sell')
 		},
-		computed:{
-			showGoods() {
-				return this.goods[this.currentType].list
-			}
-		},
 		components:{
 			"swipers":swipers,
 			"recommends":recommends,
 			"tabcontrol":tabcontrol,
 			"goodlist":goodlist
 		},
+		mixins:[mixinorder],
+		onReachBottom(){  //上拉触底函数
+			if(!this.isLoadMore){  //此处判断，上锁，防止重复请求
+				this.isLoadMore=true
+				this.gethomelist(this.currentType)
+			}
+		},
+		computed:{
+			showGoods() {
+				return this.goods[this.currentType].list
+			}
+		},
 		methods: {
+			//一键返回顶部显示
+			onPageScroll: function(Object) {this.isShowbackTop = Object.scrollTop > 1000},
 			tabClick(index) {
 				switch (index) {
 				  case 0:
@@ -73,12 +87,17 @@
 			async gethomelist(type){
 				const page = this.goods[type].page + 1;
 				const res = await this.$myRuquest({
-					url:'/home/data?type='+type+'&page='+1
+					url:'/home/data?type='+type+'&page='+page
 				})
 				this.goods[type].list.push(...res.data.data.list);
-				console.log(this.goods[type].list)
+				this.goods[type].page +=1;
+				this.isLoadMore = false;
 			},
-			
+			itemclick(id){
+				uni.navigateTo({
+					url:'/pages/detail/index?id='+id
+				})
+			}
 		}
 	}
 </script>

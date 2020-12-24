@@ -1,24 +1,19 @@
 <template>
 	<view class="goodlist">
-		<view v-for="(item,index) in showGoods" :key="index" class="goods" @click="navigator(item.iid)">
-			<image :src="item.showLarge.img"></image>
+		<view v-for="(item,index) in recommend" :key="index" class="goods">
+			<image :src="item.image"></image>
 			<text>{{item.title}}</text>
-			<text class="price">{{item.orgPrice}}</text>
+			<text class="price">{{item.price}}</text>
 		</view>
 	</view>
 </template>
 
 <script>
 	export default{
-		props:["showGoods"],
+		props:["recommend"],
 		data(){
 			return{
 				
-			}
-		},
-		methods:{
-			navigator (id) {
-				this.$emit('goodslistclick',id)
 			}
 		}
 	}
