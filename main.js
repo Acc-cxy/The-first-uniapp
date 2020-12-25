@@ -6,6 +6,7 @@ import { myRequest } from './util/api.js'
 
 Vue.prototype.$store = store
 Vue.prototype.$myRuquest = myRequest
+Vue.prototype.$bus =new Vue()
 Vue.config.productionTip = false
 
 App.mpType = 'app'

@@ -1,7 +1,7 @@
 <template>
   <view id="shop-item">
     <view class="item-selector">
-		<CartButton ></CartButton>
+		<CartButton :checkout="cartcount.checked" @click.native="maibumai"></CartButton>
 		 <!-- <CartButton :checkout="cartcount.checked" @click.native="maibumai"></CartButton> -->
     </view>
     <view class="item-img">
@@ -12,7 +12,7 @@
       <view class="item-desc">商品描述: {{cartcount.desc}}</view>
       <view class="info-bottom">
         <view class="item-price left">{{cartcount.price}}</view>
-        <view class="item-count right">{{cartcount.count}}</view>
+        <view class="item-count right">x{{cartcount.count}}</view>
       </view>
     </view>
   </view>
@@ -24,8 +24,11 @@ import CartButton from "./CartButton.vue";
 export default {
   components:{"CartButton":CartButton},
   props:["cartcount"],
-  mounted() {
-  	console.log(this.cartcount)
+  methods:{
+	  maibumai(){
+	  	this.cartcount.checked = !this.cartcount.checked
+		this.$bus.$emit("ams")
+	  }
   }
 }
 </script>
@@ -86,7 +89,16 @@ export default {
   right: 10px;
 }
 
+.info-bottom view{
+	display: inline-block;
+}
+
+
 .info-bottom .item-price {
   color: orangered;
+}
+
+.item-count{
+	float: right;
 }
 </style>

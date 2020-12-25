@@ -3,20 +3,17 @@
 		<CartListitem 
 			v-for="(item,index) in cartcount"
 			:key="index"
-			:cartcount="cartcount">
+			:cartcount="item">
 		</CartListitem>
 	</view>
 </template>
 
 <script>
-	import {mapGetters} from 'vuex'
 	import CartListitem from './CartListitem.vue'
 	
 	export default{
-		computed:{
-			 ...mapGetters(["cartcount"])
-		},
 		components:{"CartListitem":CartListitem},
+		props:["cartcount"],
 		onShow() {
 			// this.a()
 		},
@@ -26,7 +23,7 @@
 		methods:{
 			a(){
 				this.$nextTick(() => {
-				        console.log(this.cartcount)
+				        // console.log(this.cartcount)
 				})
 			}
 		},

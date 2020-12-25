@@ -1,7 +1,7 @@
 export default {
     addjoinone(state,payload){
         let oldproduct = state.cartlist.find(item => item.iid === payload.iid)
-        // 2.判断oldproduct
+	   // 2.判断oldproduct
         if (oldproduct) {
             oldproduct.count +=1
         } else {
@@ -9,7 +9,12 @@ export default {
             payload.checked = true
             state.cartlist.push(payload)
         }
-
-    }
+    },
+	allclick(state,isall){
+		let oldproduct = state.cartlist
+		oldproduct.forEach((item)=>{
+			item.checked = isall
+		})
+	}
 }
 

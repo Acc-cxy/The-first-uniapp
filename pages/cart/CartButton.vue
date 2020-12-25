@@ -1,13 +1,12 @@
 <template>
-  <view class="imagebox"  >
-    < src="../../static/icon/tick.svg" alt="">
+  <view class="imagebox" :class="{buttonbox:checkout}" >
+	<image src="../../static/icon/tick.svg"></image>
   </view>
 </template>
 
 <script>
 export default {
-  props:{
-  },
+  props:["checkout"],
   computed:{
 
   },
@@ -25,11 +24,13 @@ export default {
       display: inline-block;
     }
     .buttonbox{
-      text-align: center;
       background: red;
       border: 0;
+      text-align: center;
     }
-    .buttonbox img{
+    .imagebox image{
+		width: 20px;
+		height: 20px;
       margin: 2px 0;
     }
 </style>
