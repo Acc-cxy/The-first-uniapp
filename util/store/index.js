@@ -6,12 +6,14 @@ import getters from './getters.js'
 
 Vue.use(Vuex)
 
-const state = {
-	cartlist:[]
-}
+// const state = {
+// 	isLogin:false,
+// 	cartlist:[]
+// }
 
 export const store = new Vuex.Store({
 	state:{
+		isLogin:false,
 		cartlist:[]
 	},
 	getters,

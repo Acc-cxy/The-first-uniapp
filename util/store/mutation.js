@@ -15,6 +15,10 @@ export default {
 		oldproduct.forEach((item)=>{
 			item.checked = isall
 		})
+	},
+	// 登录界面
+	changeLog(state,logState){
+		state.isLogin = logState;
 	}
 }
 

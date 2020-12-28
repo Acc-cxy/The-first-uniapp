@@ -57,7 +57,6 @@
 			this.getdetailswiper(this.iid)
 			this.getrecommend()
 			this.themetops[0] = 0
-			console.log(this.$store.state)
 		},
 		components:{
 			"DetailNav":DetailNav,

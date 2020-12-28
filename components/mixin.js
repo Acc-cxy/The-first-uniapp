@@ -17,7 +17,7 @@ export const mixinorder = {
 			})
 		},
 		onPageScroll(Object) {
-			this.isShowbackTop = Object.scrollTop > 1000
+			this.isShowbackTop = Object.scrollTop > 500
 			console.log(Object.scrollTop);//实时获取到滚
 		}
 	}

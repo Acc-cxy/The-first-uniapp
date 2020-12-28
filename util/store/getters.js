@@ -4,5 +4,8 @@ export default {
     },
     cartcount(state){
         return state.cartlist
-    }
+    },
+	getlogin(state){
+		return state.isLogin
+	}
 }
