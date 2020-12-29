@@ -1,6 +1,8 @@
 export default {
     addjoinone(state,payload){
-        let oldproduct = state.cartlist.find(item => item.iid === payload.iid)
+        let oldproduct = state.cartlist.find(item => {
+			item.iid === payload.iid
+		})
 	   // 2.判断oldproduct
         if (oldproduct) {
             oldproduct.count +=1
@@ -19,6 +21,10 @@ export default {
 	// 登录界面
 	changeLog(state,logState){
 		state.isLogin = logState;
+	},
+	// 个人尺码
+	oversize(state,size){
+		state.size = size
 	}
 }
 

@@ -10,7 +10,6 @@
 	import {mapGetters} from 'vuex'
 	import CartList from './CartList.vue'
 	import CartBuy from './CartBuy.vue'
-	
 	export default{
 		components:{
 			"CartList":CartList,
@@ -50,7 +49,6 @@
 		}
 	}
 </script>
-
 <style>
 	  .all{
 		  line-height: 2;

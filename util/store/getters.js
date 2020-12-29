@@ -7,5 +7,8 @@ export default {
     },
 	getlogin(state){
 		return state.isLogin
+	},
+	getsize(state){
+		return state.size
 	}
 }

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App'
-import router from './router.js'
-import {RouterMount} from 'uni-simple-router'
+// import router from './router.js'
+// import {RouterMount} from 'uni-simple-router'
 
 import { login } from './util/login.js'
 import { store } from './util/store/index.js'
@@ -15,14 +15,14 @@ Vue.config.productionTip = false
 
 App.mpType = 'app'
 
-// new Vue({
-//   render: h => h(App),
-//   store
-// }).$mount()
+new Vue({
+  render: h => h(App),
+  store
+}).$mount()
 
-const app = new Vue({
-    ...App,
-	store
-})
+// const app = new Vue({
+//     ...App,
+// 	store
+// })
 
-RouterMount(app,'#app')
+// RouterMount(app,'#app')

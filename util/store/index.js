@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import state from './state.js'
 import mutations from './mutation.js'
 import getters from './getters.js'
 
@@ -12,10 +13,7 @@ Vue.use(Vuex)
 // }
 
 export const store = new Vuex.Store({
-	state:{
-		isLogin:false,
-		cartlist:[]
-	},
+	state,
 	getters,
 	mutations
 })
