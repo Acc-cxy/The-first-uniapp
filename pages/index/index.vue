@@ -83,6 +83,7 @@
 				})
 				this.info = res.data.data.banner.list;
 				this.recomm = res.data.data.recommend.list;
+				return res
 			},
 			async gethomelist(type){
 				const page = this.goods[type].page + 1;

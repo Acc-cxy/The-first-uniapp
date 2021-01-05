@@ -1,5 +1,7 @@
 <template>
-	<view>1</view>
+	<view>
+		<!-- <input type="file" /> -->
+	</view>
 </template>
 
 <script>

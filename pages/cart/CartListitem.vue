@@ -2,7 +2,6 @@
   <view id="shop-item">
     <view class="item-selector">
 		<CartButton :checkout="cartcount.checked" @click.native="maibumai"></CartButton>
-		 <!-- <CartButton :checkout="cartcount.checked" @click.native="maibumai"></CartButton> -->
     </view>
     <view class="item-img">
       <image :src="cartcount.image" alt="商品图片">

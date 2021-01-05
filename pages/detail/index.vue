@@ -94,8 +94,11 @@
 			onPageScroll(Object) {
 				//一键返回顶部显示 
 				this.isShowbackTop = Object.scrollTop > 1000
-				const positiony = Object.scrollTop +44
+			
+				
+				// 监听导航栏
 				let length = this.themetops.length
+				const positiony = Object.scrollTop +44
 				for(let i = 0;i < length-1;i++){
 					if(this.currentIndex !==i && (positiony >= this.themetops[i] && positiony < this.themetops[i+1])){
 						this.currentIndex = i;

@@ -87,6 +87,7 @@
 				const isSome = arr.some(function(item,index,array){
 					return item.is == false
 				})
+				console.log(isSome)
 				if(all && !isSome){
 					arr.forEach(function(item){
 						item.is = false
@@ -108,9 +109,6 @@
 					return item.is == true
 				})
 				this.$store.commit('oversize',minus)
-				// uni.navigateTo({
-				// 	url:'/pages/member/index'
-				// })
 				uni.navigateBack()
 			}
 		},

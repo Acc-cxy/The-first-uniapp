@@ -93,7 +93,15 @@
     "h5" : {
         "uniStatistics" : {
             "enable" : false
-        }
+        },
+        "title" : "时髦网",
+        "router" : {
+            "base" : "h5"
+        },
+        "devServer" : {
+            "port" : 1000
+        },
+        "domain" : "uni.linqinggan.top"
     },
     "mp-qq" : {
         "uniStatistics" : {

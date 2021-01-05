@@ -17,7 +17,7 @@
 		data(){
 			return{
 				vals:"",
-				allprice:0,
+				allprice:"",
 				allbuy:true
 			}
 		},
@@ -44,6 +44,7 @@
 				})
 			},
 			allclick(){
+				this.all()
 				if(this.allbuy == true){
 					this.$store.commit('allclick',false)
 					this.allbuy = false

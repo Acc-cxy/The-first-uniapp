@@ -28,6 +28,7 @@
 			</view>
 			<view class="oversize" @click="mysize">设置个人尺码收藏</view>
 		</view>
+		
 	</view>
 </template>
 
